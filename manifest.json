@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "GitHub Regex Folder",
+    "description": "GitHub Pull Request and Commit file changed collapse by regex",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup.html",
+        "matches": [
+            "https://github.com/*/*/pull/*/files",
+            "https://github.com/*/*/commits/*"
+        ]
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "contents-script.js"
+            ],
+            "matches": [
+                "https://github.com/*/*/pull/*/files",
+                "https://github.com/*/*/commits/*"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting",
+        "storage"
+    ]
+}
