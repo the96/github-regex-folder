@@ -74,8 +74,8 @@ function getDataKeyAsync(callback) {
 function loadData() {
     getDataKeyAsync((key) => {
         chrome.storage.local.get([key], function (obj) {
-            const data = obj[key]
-            if (data) {
+            const data = obj[key].trim()
+            if (data.length > 0) {
                 document.getElementById("regex").value = data
                 return
             }
